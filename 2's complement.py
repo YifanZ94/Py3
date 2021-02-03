@@ -5,7 +5,7 @@ Created on Thu Jan 14 16:21:29 2021
 @author: Administrator
 """
 
-unsign_str = '0000000000101011'
+unsign_str = '110100'
 ordi = len(unsign_str)
 
 unsign = int(unsign_str,2)
@@ -17,3 +17,5 @@ if unsign < 2**(ordi-1):
 else:
     print('-')
     signed = -(2**ordi - unsign)
+    
+print(signed)
