@@ -23,25 +23,28 @@ sensor = adafruit_lsm9ds1.LSM9DS1_I2C(i2c)
     
 print('test start')
 start = time.time()
-acc = []
+data = []
+
 while True:
-    try:
+    command = input('n to stop collect data ')
+    if command != 'n':
     # Read acceleration, magnetometer, gyroscope, temperature.
         accel_x, accel_y, accel_z = sensor.acceleration
+        gyro_x, gyro_y, gyro_z = sensor.gyro
         # acc.append([accel_x-bias[0], accel_y-bias[1], accel_z])
-        acc.append([accel_x, accel_y, accel_z])
+        data.append([accel_x, accel_y, accel_z, gyro_x, gyro_y, gyro_z])
         # time.sleep(0.01)
-    except:
+    else:
         break
     
-duration = time.time() - start
-print(duration)
+# duration = time.time() - start
+# print(duration)
 filename = input('enter the file name: ')       
 file = open(filename + '_acc.txt', 'w')
-np.savetxt(file, np.array(acc))
+np.savetxt(file, np.array(data))
 file.close()    
 
 import matplotlib.pyplot as plt
-plt.plot(np.array(acc)[:,1])
+plt.plot(np.array(data)[:,1])
 plt.show()
     
