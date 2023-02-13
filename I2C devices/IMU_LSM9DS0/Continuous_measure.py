@@ -21,20 +21,22 @@ sensor = adafruit_lsm9ds0.LSM9DS0_I2C(i2c)
 
 start = time.time()
 i = 0
-acc_list = []
+data = []
 
 sleepT = 0.01
 print('start')
 while True:
     try:
-        acc_list.append(sensor.acceleration)
-        time.sleep(sleepT)
+        accel_x, accel_y, accel_z = sensor.acceleration
+        gyro_x, gyro_y, gyro_z = sensor.gyro
+        # mag_x, mag_y, mag_z = sensor.magnetic
+        data.append([accel_x, accel_y, accel_z, gyro_x, gyro_y, gyro_z])
     except:
         break
 
 duration = time.time()-start
 print(duration)
 filename = input('enter the file name: ')       
-file = open(filename + '_acc.txt', 'w')
-np.savetxt(file, np.array(acc_list))
+file = open(filename + '_IMU.txt', 'w')
+np.savetxt(file, np.array(data))
 file.close()

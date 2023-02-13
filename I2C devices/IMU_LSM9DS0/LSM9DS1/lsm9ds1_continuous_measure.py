@@ -29,7 +29,8 @@ while True:
     # changed from left hand coord to right hand coord
         accel_x, accel_y, accel_z = sensor.acceleration
         gyro_x, gyro_y, gyro_z = sensor.gyro
-        data.append([accel_y, accel_x, accel_z, gyro_y, gyro_x, gyro_z])
+        mag_x, mag_y, mag_z = sensor.magnetic
+        data.append([accel_y, accel_x, accel_z, gyro_y, gyro_x, gyro_z, mag_x, mag_y, mag_z])
     except:
         break
     
