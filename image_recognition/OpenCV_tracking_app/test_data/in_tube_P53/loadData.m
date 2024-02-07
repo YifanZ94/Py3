@@ -1,0 +1,20 @@
+clear; clc
+data1 = load('vedio_locs.txt');
+Xdis = data1(:,1);
+Xdis = (Xdis - Xdis(end))./(Xdis(1)-Xdis(end))*26 - 13;
+Xdis = Xdis(5:550);
+
+test = load('tlocs.txt');
+
+x = linspace(0,20,size(Xdis,1));
+plot(x,Xdis,'--')
+hold on
+x2 = linspace(0,20,size(test,1));
+plot(x2,test(:,2))
+legend('reference','test')
+xlabel('time(s)')
+ylabel('Y location(cm)')
+
+%%
+mag = sqrt(acc(:,1).^2+acc(:,2).^2+acc(:,3).^2);
+plot(mag)

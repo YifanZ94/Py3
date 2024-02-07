@@ -23,19 +23,30 @@ MS1.direction = digitalio.Direction.OUTPUT
 MS2 = digitalio.DigitalInOut(board.D7)
 MS2.direction = digitalio.Direction.OUTPUT
 
-stepdelay = 0.001
 MS1.value = False
 MS2.value = True
 
 disRange = 10
 disIncrement = 1
-steps = round(disIncrement*135.47)
+# steps = round(disIncrement*135)
 
 class motor:
     def __init__(self):
-        self.stepdelay = 0.001
-        MS1.value = False
-        MS2.value = True
+        self.stepdelay = 5e-3
+        # MS1.value = False
+        # MS2.value = True
+        
+    def move_one_step(self,dirIn): 
+        if dirIn == 0:
+            direc.value = True
+        else:
+            direc.value = False
+        enable.value = False
+        step.value = True
+        time.sleep(self.stepdelay)
+        step.value = False
+        time.sleep(self.stepdelay)
+        
         
     def move(self,dist,dirIn): 
         if dirIn == 0:

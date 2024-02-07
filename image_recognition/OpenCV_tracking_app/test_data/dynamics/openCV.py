@@ -5,8 +5,8 @@ Created on Tue Apr  6 18:34:45 2021
 @author: Administrator
 """
 # conda activate snakes
-# cd F:\py_code\Py3\image_recognition\test_data\magnet_below
-# python openCV.py --video 2LEDs.mp4 --tracker kcf
+# cd F:\py_code\Py3\image_recognition\OpenCV_tracking_app\test_data\dynamics
+# python openCV.py --video slow_intermittent.mp4 --tracker kcf
 
 from imutils.video import VideoStream
 from imutils.video import FPS

@@ -6,7 +6,7 @@ Created on Tue Apr  6 18:34:45 2021
 """
 # ENTER THE FOLLOWING IN CMD TO START
 # conda activate snakes
-# cd F:\py_code\Py3\image_recognition
+# cd F:\py_code\Py3\image_recognition\OpenCV_tracking_app\test_data\in_tube_P53
 # python openCV.py --video sensorBreadboard.mp4 --tracker kcf
 
 from imutils.video import VideoStream
