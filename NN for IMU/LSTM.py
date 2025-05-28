@@ -34,7 +34,7 @@ np.random.seed(455)
 #%% load and format the data
 import scipy.io as sio
 
-path = r"F:\py_code\Py3\NN for IMU"       
+path = r"E:\Python code\Py3\NN for IMU"       
 os.chdir(path)
 sigma = sio.loadmat("sigma.mat")
 sigmaX = sigma["sigmaX"]
@@ -42,7 +42,7 @@ sigmaT = sigma["sigmaT"]
 
 training_dim = np.array([1,2,3,4,6])-1
 
-path = r"F:\py_code\Py3\NN for IMU\data_set\Inputs"
+path = r"E:\Python code\Py3\NN for IMU\data_set\Inputs"
 os.chdir(path)
 features = {"1":[], "2":[], "3":[], "4":[], "5":[]}
 
@@ -63,7 +63,7 @@ for file in os.listdir():
         sample_num += 1
 
 #%%    
-path = r"F:\py_code\Py3\NN for IMU\data_set\Targets"
+path = r"E:\Python code\Py3\NN for IMU\data_set\Targets"
 os.chdir(path)
 target_sets = -10*np.ones((89, L_max, 1))
 i = 0
@@ -148,7 +148,7 @@ for _ in range(test_pred.shape[0]):
     plt.show()
 
 #%%
-os.chdir(r"F:\py_code\Py3\NN for IMU")
+os.chdir(r"E:\Python code\Py3\NN for IMU")
 model.save('GRU1.keras')
 
 #%%
