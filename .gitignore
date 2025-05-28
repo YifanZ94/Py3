@@ -1,6 +1,8 @@
+# Ignore everything
+*
 
-*.txt
-*.pdf
-*.JPG
-*.mat
-*.zip
+# But NOT these:
+!*.ipynb
+!*.py
+!*.txt
+!*.csv
